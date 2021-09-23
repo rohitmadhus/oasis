@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import Rating from "../components/Rating";
 import data from "../constants/data";
-import ErrorScreen from "./ErrorScreen";
+import ErrorScreen from "./errorScreen";
 
 export default function ProductScreen(props) {
   const product = data.products.find(
@@ -53,7 +53,7 @@ export default function ProductScreen(props) {
                     {product.countInStock > 0 ? (
                       <span className="success">In Stock</span>
                     ) : (
-                      <span className="error">Unavailable</span>
+                      <span className="danger">Unavailable</span>
                     )}
                   </div>
                 </div>
