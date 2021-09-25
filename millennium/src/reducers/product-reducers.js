@@ -5,7 +5,7 @@ import {
   PRODUCT_LIST_FAIL,
   PRODUCT_LIST_REQUEST,
   PRODUCT_LIST_SUCCESS,
-} from "../constants/productConstants";
+} from "../constants/product-constants";
 
 export const productListReducer = (
   state = { loading: true, products: [] },

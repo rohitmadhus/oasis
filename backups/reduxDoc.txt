@@ -1,13 +1,11 @@
-We create a store and define in app.js
-so add will know abt the store
+Redux flow
+selector -> to take state from store
+dispatch -> send state to store
 
-we will have 2 hooks 
-dispatcher => that will dispatch our action
-selector   => that will be connected to store and fetch state
-              this will make redux to point which reducer need to be used
+store (global DB kind of obt to store all states)
 
-we use useEffect to call the action from component
-action will have process expalined init
-will change the dispatch function
+we dispatch state to action where we do all actions
 
-once we change 
+according to function of action reducer will set state
+
+reducer will send the data to store
