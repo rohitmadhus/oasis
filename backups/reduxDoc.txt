@@ -1,0 +1,13 @@
+We create a store and define in app.js
+so add will know abt the store
+
+we will have 2 hooks 
+dispatcher => that will dispatch our action
+selector   => that will be connected to store and fetch state
+              this will make redux to point which reducer need to be used
+
+we use useEffect to call the action from component
+action will have process expalined init
+will change the dispatch function
+
+once we change 
