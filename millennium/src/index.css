@@ -261,7 +261,8 @@ img.large {
 
 .form label {
   margin: 1rem 0;
-  display: block; /* next line */
+  /* display: block;  */
+  /* above css to display on next line */
 }
 
 .form input {
@@ -292,4 +293,22 @@ img.large {
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+/***************************************************************************************
+********************************* Checkout Style ***************************************
+****************************************************************************************/
+
+.checkout-steps > div {
+  border-top: 0.3rem #c0c0c0 solid;
+  color: #c0c0c0;
+  flex: 1;
+  padding: 1rem;
+  font-weight: bold;
+  align-self: start;
+}
+
+.checkout-steps > div.active {
+  border-top-color: #ff8000;
+  color: #ff8000;
 }
