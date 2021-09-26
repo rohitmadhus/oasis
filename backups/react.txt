@@ -1,0 +1,2 @@
+named export should be inside {} 
+default export doesent need that braces

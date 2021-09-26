@@ -1,31 +1,24 @@
 import express from "express";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-import data from "./constants/data.js";
+import productRouter from "./routers/product-router.js";
 import userRouter from "./routers/user-router.js";
 
+dotenv.config();
+
+const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 mongoose
-  .connect("mongodb://localhost/atlanta", {
+  .connect(process.env.MONGODB_URL || "mongodb://localhost/atlanta", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
   .catch((e) => console.log(e.message + "DB issue"));
 
-const app = express();
-
-app.get("/api/products", (req, res) => {
-  res.send(data.products);
-});
-
-app.get("/api/products/:id", (req, res) => {
-  console.log("get called");
-  const product = data.products.find((x) => x._id === req.params.id);
-  if (product) {
-    res.send(product);
-  } else {
-    res.status(404).send({ message: "Product not found" });
-  }
-});
+app.use("/api/products", productRouter);
 app.use("/api/users", userRouter);
 
 app.get("/", (req, res) => {
@@ -37,7 +30,7 @@ app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
 });
 
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
   console.log(`server at http://localhost:${port}`);
